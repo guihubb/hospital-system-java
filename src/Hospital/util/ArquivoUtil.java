@@ -13,12 +13,12 @@ public class ArquivoUtil {
             File arquivo = new File(caminhoArquivo);
             File pasta = arquivo.getParentFile();
 
-            // Se a pasta (ex: 'dados') não existir, cria ela primeiro para não dar erro
+
             if (pasta != null && !pasta.exists()) {
                 pasta.mkdirs();
             }
 
-            // Grava o arquivo usando UTF_8 para garantir que acentos (á, ç, õ) não quebrem
+
             Files.writeString(Paths.get(caminhoArquivo), conteudo, StandardCharsets.UTF_8);
             System.out.println("[ArquivoUtil] Arquivo gravado com sucesso: " + caminhoArquivo);
 

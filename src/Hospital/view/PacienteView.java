@@ -23,7 +23,7 @@ public class PacienteView {
             System.out.println("2. Listar Pacientes");
             System.out.println("3. Buscar Paciente por ID");
             System.out.println("4. Remover Paciente");
-            System.out.println("5. Voltar ao Menu Principal");
+            System.out.println("0. Voltar ao Menu Principal");
             System.out.print("Escolha uma opção: ");
 
             try {
@@ -48,7 +48,7 @@ public class PacienteView {
                 case 4:
                     telaRemocao();
                     break;
-                case 5:
+                case 0:
                     System.out.println("Retornando ao menu principal...");
                     break;
                 default:

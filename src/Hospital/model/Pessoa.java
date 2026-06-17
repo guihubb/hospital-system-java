@@ -7,7 +7,8 @@ public abstract class Pessoa {
     protected String email;
     protected int id;
 
-    public Pessoa(int id, String nome) {
+    public Pessoa(int id, String nome, String cpf) {
+        this.cpf = cpf;
         this.id = id;
         this.nome = nome;
     }
@@ -43,5 +44,6 @@ public abstract class Pessoa {
     public void setEmail(String email) {
         this.email = email;
     }
+
     public int getId() {return id;}
 }

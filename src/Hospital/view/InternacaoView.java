@@ -1,8 +1,7 @@
 package Hospital.view;
 
 import Hospital.controller.InternacaoController;
-
-import javax.swing.JOptionPane;
+import java.util.Scanner;
 
 public class InternacaoView {
     private InternacaoController controller;
@@ -12,17 +11,25 @@ public class InternacaoView {
     }
 
     public void exibirTelaInternacao() {
-        String paciente = JOptionPane.showInputDialog("Nome do Paciente:");
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Nome do Paciente: ");
+        String paciente = scanner.nextLine();
+
         if (paciente != null && !paciente.isEmpty()) {
             try {
-                String numStr = JOptionPane.showInputDialog("Número do Quarto para internar:");
+                System.out.print("Número do Quarto para internar: ");
+                String numStr = scanner.nextLine();
                 int numeroQuarto = Integer.parseInt(numStr);
 
                 String mensagem = controller.processarInternacao(paciente, numeroQuarto);
-                JOptionPane.showMessageDialog(null, mensagem);
+
+                System.out.println("\n--- Status da Internação ---");
+                System.out.println(mensagem);
+                System.out.println("----------------------------");
 
             } catch (NumberFormatException e) {
-                JOptionPane.showMessageDialog(null, "Erro: Digite um número de quarto válido.");
+                System.out.println("\n[ERRO] Erro: Digite um número de quarto válido.");
             }
         }
     }

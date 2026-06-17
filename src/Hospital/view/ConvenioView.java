@@ -21,9 +21,9 @@ public class ConvenioView {
             System.out.println("\n--- TELA DE CONVÊNIOS ---");
             System.out.println("1. Cadastrar Convênio");
             System.out.println("2. Listar Convênios");
-            System.out.println("3. Simular Desconto de Exame (Polimorfismo)");
+            System.out.println("3. Simular Desconto de Exame");
             System.out.println("4. Remover Convênio");
-            System.out.println("5. Voltar ao Menu Principal");
+            System.out.println("0. Voltar ao Menu Principal");
             System.out.print("Escolha uma opção: ");
 
             try {
@@ -48,7 +48,7 @@ public class ConvenioView {
                 case 4:
                     telaRemocao();
                     break;
-                case 5:
+                case 0:
                     System.out.println("Retornando ao menu principal...");
                     break;
                 default:
@@ -90,7 +90,7 @@ public class ConvenioView {
     }
 
     private void telaSimulacao() {
-        System.out.println("\n[Simulação de Desconto Polimórfico]");
+        System.out.println("\n[Simulação de Desconto]");
         System.out.print("Digite o ID do Convênio: ");
         int id = scanner.nextInt();
         System.out.print("Digite o valor bruto do Exame: R$ ");
