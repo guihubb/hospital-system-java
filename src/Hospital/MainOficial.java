@@ -1,36 +1,12 @@
 package Hospital;
 
-import Hospital.controller.ConsultaController;
-import Hospital.controller.ExameController;
-import Hospital.controller.ConvenioController;
-import Hospital.controller.PacienteController;
-import Hospital.controller.InternacaoController;
-import Hospital.controller.QuartoController;
-import Hospital.controller.ProntuarioController;
+import Hospital.controller.*;
 
-import Hospital.repository.ConsultaRepository;
-import Hospital.repository.ExameRepository;
-import Hospital.repository.ConvenioRepository;
-import Hospital.repository.PacienteRepository;
-import Hospital.repository.InternacaoRepository;
-import Hospital.repository.QuartoRepository;
-import Hospital.repository.ProntuarioRepository;
+import Hospital.repository.*;
 
-import Hospital.service.ConsultaService;
-import Hospital.service.ExameService;
-import Hospital.service.ConvenioService;
-import Hospital.service.PacienteService;
-import Hospital.service.InternacaoService;
-import Hospital.service.QuartoService;
-import Hospital.service.ProntuarioService;
+import Hospital.service.*;
 
-import Hospital.view.ConsultaView;
-import Hospital.view.ExameView;
-import Hospital.view.ConvenioView;
-import Hospital.view.PacienteView;
-import Hospital.view.InternacaoView;
-import Hospital.view.QuartoView;
-import Hospital.view.ProntuarioView;
+import Hospital.view.*;
 
 import java.util.Scanner;
 
@@ -70,6 +46,16 @@ public class MainOficial {
         ProntuarioController prontuarioController = new ProntuarioController(prontuarioService);
         ProntuarioView prontuarioView = new ProntuarioView(prontuarioController);
 
+        MedicoRepository medicoRepository = new MedicoRepository();
+        MedicoService medicoService = new MedicoService(medicoRepository);
+        MedicoController medicoController = new MedicoController(medicoService);
+        MedicoView medicoView = new MedicoView(medicoController);
+
+        EspecialidadeRepository especialidadeRepository = new EspecialidadeRepository();
+        EspecialidadeService especialidadeService = new EspecialidadeService(especialidadeRepository);
+        EspecialidadeController especialidadeController = new EspecialidadeController(especialidadeService);
+        EspecialidadeView especialidadeView = new EspecialidadeView(especialidadeController);
+
         Scanner scanner = new Scanner(System.in);
         int menuPrincipal = -1;
 
@@ -85,6 +71,8 @@ public class MainOficial {
             System.out.println("5. Gerenciamento de Consultas");
             System.out.println("6. Gerenciamento de Exames");
             System.out.println("7. Gerenciamento de Prontuarios");
+            System.out.println("8. Gerenciamento de Médicos");
+            System.out.println("9. Gerenciamento de Especialidades");
             System.out.print("Selecione o módulo de acesso: ");
 
             try {
@@ -120,6 +108,12 @@ public class MainOficial {
                     break;
                 case 7:
                     prontuarioView.exibirMenu();
+                    break;
+                case 8:
+                    medicoView.exibirMenu();
+                    break;
+                case 9:
+                    especialidadeView.exibirMenu();
                     break;
                 default:
                     System.out.println("Opção inexistente.");
