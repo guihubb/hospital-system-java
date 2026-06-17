@@ -49,30 +49,19 @@ O projeto foi dividido em módulos independentes integrados através de um ecoss
 src/
 └── Hospital/                  # Raiz principal do sistema
     ├── controller/            # Controladores que orquestram o fluxo de dados
-    │   ├── AdministradorController.java
     │   ├── ProntuarioController.java
     │   └── ... (Demais controladores do grupo)
     │
-    ├── interfaces/            # Contratos e Interfaces globais
-    │   └── Autenticavel.java
-    │
-    ├── main/                  # Classes alternativas de inicialização e testes
-    │   ├── MainHospital.java
-    │   └── MainKaito.java
-    │
     ├── model/                 # Entidades de dados (POJOs) e heranças
     │   ├── Pessoa.java        # Classe abstrata base
-    │   ├── Administrador.java
     │   ├── Prontuario.java
     │   └── ... (Convenio, Medico, Paciente, Quarto, etc.)
     │
     ├── repository/            # Camada de persistência (leitura e escrita dos arquivos)
-    │   ├── AdministradorRepository.java
     │   ├── ProntuarioRepository.java
     │   └── ... (Demais repositórios do grupo)
     │
     ├── service/               # Camada onde ficam isoladas as regras de negócio
-    │   ├── AdministradorService.java
     │   ├── ProntuarioService.java
     │   └── ... (Demais regras do grupo)
     │
@@ -82,7 +71,6 @@ src/
     │   └── JsonUtil.java      # Parser genérico do Google Gson (<T>)
     │
     ├── view/                  # Telas de interação com o usuário via terminal
-    │   ├── AdministradorView.java
     │   ├── ProntuarioView.java
     │   └── ... (Demais visualizações do grupo)
     │
