@@ -6,7 +6,6 @@ public class Paciente extends Pessoa {
 
     public Paciente(int id, String nome, String cpf, Convenio convenio) {
         super(id, nome, cpf);
-        this.cpf = cpf;
         this.convenio = convenio;
     }
 

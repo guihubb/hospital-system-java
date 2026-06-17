@@ -9,7 +9,11 @@ import java.util.List;
 import java.util.UUID;
 
 public class ProntuarioController {
-    private final ProntuarioService service = new ProntuarioService();
+    private ProntuarioService service;
+
+    public ProntuarioController(ProntuarioService prontuarioService) {
+        this.service = prontuarioService;
+    }
 
     public void processarCriacao(String idPaciente, String historico, List<String> alergias){
         String idProntuario = UUID.randomUUID().toString().substring(0, 8);

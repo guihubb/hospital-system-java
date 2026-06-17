@@ -5,6 +5,9 @@ import Hospital.repository.ProntuarioRepository;
 
 public class ProntuarioService {
     private ProntuarioRepository repository;
+    public ProntuarioService(ProntuarioRepository prontuario) {
+        this.repository = prontuario;
+    }
 
     public void emitirNovoProntuario(Prontuario p){
         Prontuario prontuarioExistente = repository.buscarPorIdPaciente(p.getIdPaciente());

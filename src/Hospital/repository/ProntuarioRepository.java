@@ -8,10 +8,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ProntuarioRepository {
-    private final String CAMINHO_ARQUIVO = "dados/prontuarios.json";
 
+    private final String CAMINHO_ARQUIVO = "dados/prontuarios.json";
+    List<Prontuario> prontuarios;
     private List<Prontuario> lerArquivo(){
-        List<Prontuario> prontuarios = JsonUtil.lerProntuarios(CAMINHO_ARQUIVO);
+        prontuarios = JsonUtil.ler(CAMINHO_ARQUIVO, Prontuario.class);
 
         return  prontuarios != null ? prontuarios : new ArrayList<>();
     }
@@ -19,7 +20,7 @@ public class ProntuarioRepository {
     public void salvar(Prontuario p){
         List<Prontuario> prontuarios = lerArquivo();
         prontuarios.add(p);
-        JsonUtil.salvarProntuarios(CAMINHO_ARQUIVO, prontuarios);
+        JsonUtil.salvar(CAMINHO_ARQUIVO, prontuarios);
     }
 
     public Prontuario buscarPorId(String id){
@@ -59,7 +60,7 @@ public class ProntuarioRepository {
         }
 
         if (atualizado) {
-            JsonUtil.salvarProntuarios(CAMINHO_ARQUIVO, prontuarios);
+            JsonUtil.salvar(CAMINHO_ARQUIVO, prontuarios);
         } else {
             System.out.println("Prontuário com id " + p.getId() + " não encontrado para atualização.");
         }

@@ -8,8 +8,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ProntuarioView {
-    private final ProntuarioController controller = new ProntuarioController();
+    private ProntuarioController controller;
 
+    public ProntuarioView(ProntuarioController prontuarioController) {
+        this.controller = prontuarioController;
+    }
     public void exibirFormularioCriacao(){
         System.out.println("\n=== EMISSÃO DE NOVO PRONTUÁRIO ===");
 

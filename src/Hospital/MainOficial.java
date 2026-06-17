@@ -6,6 +6,7 @@ import Hospital.controller.ConvenioController;
 import Hospital.controller.PacienteController;
 import Hospital.controller.InternacaoController;
 import Hospital.controller.QuartoController;
+import Hospital.controller.ProntuarioController;
 
 import Hospital.repository.ConsultaRepository;
 import Hospital.repository.ExameRepository;
@@ -13,6 +14,7 @@ import Hospital.repository.ConvenioRepository;
 import Hospital.repository.PacienteRepository;
 import Hospital.repository.InternacaoRepository;
 import Hospital.repository.QuartoRepository;
+import Hospital.repository.ProntuarioRepository;
 
 import Hospital.service.ConsultaService;
 import Hospital.service.ExameService;
@@ -20,6 +22,7 @@ import Hospital.service.ConvenioService;
 import Hospital.service.PacienteService;
 import Hospital.service.InternacaoService;
 import Hospital.service.QuartoService;
+import Hospital.service.ProntuarioService;
 
 import Hospital.view.ConsultaView;
 import Hospital.view.ExameView;
@@ -27,6 +30,7 @@ import Hospital.view.ConvenioView;
 import Hospital.view.PacienteView;
 import Hospital.view.InternacaoView;
 import Hospital.view.QuartoView;
+import Hospital.view.ProntuarioView;
 
 import java.util.Scanner;
 
@@ -45,6 +49,7 @@ public class MainOficial {
         ConvenioService convenioService = new ConvenioService(convenioRepo);
         ConvenioController convenioController = new ConvenioController(convenioService);
         ConvenioView convenioView = new ConvenioView(convenioController);
+
         PacienteRepository pacienteRepo = new PacienteRepository();
         PacienteService pacienteService = new PacienteService(pacienteRepo);
         PacienteController pacienteController = new PacienteController(pacienteService, convenioService);
@@ -54,13 +59,16 @@ public class MainOficial {
         ConsultaService consultaService = new ConsultaService(consultaRepository);
         ConsultaView consultaView = new ConsultaView();
         ConsultaController consultaController = new ConsultaController(consultaService, consultaView);
+
         ExameRepository exameRepository = new ExameRepository();
         ExameService exameService = new ExameService(exameRepository);
         ExameView exameView = new ExameView();
         ExameController exameController = new ExameController(exameService, exameView);
 
-        //quartoView.exibirTelaCadastro(); pra nao aparecer mais
-        //internacaoView.exibirTelaInternacao(); pra nao aparecer mais
+        ProntuarioRepository prontuarioRepository = new ProntuarioRepository();
+        ProntuarioService prontuarioService = new ProntuarioService(prontuarioRepository);
+        ProntuarioController prontuarioController = new ProntuarioController(prontuarioService);
+        ProntuarioView prontuarioView = new ProntuarioView(prontuarioController);
 
         Scanner scanner = new Scanner(System.in);
         int menuPrincipal = -1;
@@ -76,6 +84,7 @@ public class MainOficial {
             System.out.println("4. Gerenciamento de Quartos");
             System.out.println("5. Gerenciamento de Consultas");
             System.out.println("6. Gerenciamento de Exames");
+            System.out.println("7. Gerenciamento de Prontuarios");
             System.out.print("Selecione o módulo de acesso: ");
 
             try {
@@ -108,6 +117,9 @@ public class MainOficial {
                     break;
                 case 6:
                     exameController.iniciar();
+                    break;
+                case 7:
+                    prontuarioView.exibirMenu();
                     break;
                 default:
                     System.out.println("Opção inexistente.");
